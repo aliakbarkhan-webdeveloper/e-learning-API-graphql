@@ -3,13 +3,13 @@ dotenv.config({ path: "./.env" });
 
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { log } from "console";
+
 
 export const envMode = process.env.NODE_ENV?.trim() || "DEVELOPMENT";
 const port = Number(process.env.PORT) || 3000;
-
+import {schema} from "./graphql/schema/schema.js"
 const server = new ApolloServer({
-  typeDefs: `type Query {work:String}`,
+  typeDefs: schema,
   resolvers: { Query: { work: () => "hello World" } },
 });
 
