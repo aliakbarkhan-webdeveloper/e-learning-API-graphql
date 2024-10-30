@@ -1,5 +1,5 @@
 export const schema = `
-type User{
+type User{ 
 
 _id:ID!
 name:String
