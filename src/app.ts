@@ -5,7 +5,7 @@ import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { schema } from "./graphql/schema/schema.js";
 import { mongoConnect } from "./database/db.js";
-import { userModel } from "./models/userModel.js";
+import { getUsers } from "./controllers/users.controller.js";
 
 mongoConnect();
 
@@ -16,11 +16,7 @@ const server = new ApolloServer({
   resolvers: {
     Query: {
       work: () => "hello World",
-      users: async () => {
-        const users = await userModel.find();
-        console.log(users);
-        return users;
-      },
+      users: getUsers,
     },
   },
 });
