@@ -1,4 +1,7 @@
-export const schema = `
+export const schema = 
+
+`
+#graphql
 type User{ 
 
 _id:ID!
@@ -17,7 +20,6 @@ updatedAt:String
 
 
 type Query{
-work:String
 users:[User]
 }
 `;
